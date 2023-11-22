@@ -1,0 +1,8 @@
+# Goal
+int32 n
+---
+# Result
+int64 sum
+---
+# Feedback
+float64 elapsed_time  # unit time: second

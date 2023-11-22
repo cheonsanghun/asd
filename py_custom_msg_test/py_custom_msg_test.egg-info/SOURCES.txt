@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+py_custom_msg_test/__init__.py
+py_custom_msg_test.egg-info/PKG-INFO
+py_custom_msg_test.egg-info/SOURCES.txt
+py_custom_msg_test.egg-info/dependency_links.txt
+py_custom_msg_test.egg-info/entry_points.txt
+py_custom_msg_test.egg-info/requires.txt
+py_custom_msg_test.egg-info/top_level.txt
+py_custom_msg_test.egg-info/zip-safe
+resource/py_custom_msg_test
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
