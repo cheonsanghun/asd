@@ -1,0 +1,126 @@
+<sdf version="1.6">
+  <world name="default">
+
+<!--
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+-->
+
+
+<model name="ground">
+      <pose>75 -41.8 0 0 0 1.57</pose>
+      <static>1</static>
+      <link name="ground">
+        <collision name="ground_coll">
+          <geometry>
+            <box>
+              <size>83.6 150 0.05</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="ground_vis">
+          <geometry>
+            <box>
+              <size>83.6 150  0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri> ./course.material </uri>  <!-- file://course.material -->
+              <name>course</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name="prius_with_camera_pr001">
+      <pose>93 -11.7 0 0 0 -1.57</pose> <!-- Adjust the pose as needed -->
+      <static>0</static>
+
+      <!-- Prius Model File -->
+      <include>
+        <uri>model://prius_hybrid</uri> <!-- Assuming the model is named prius_hybrid -->
+      </include>
+
+      <!-- Camera Sensor -->
+      <link name="camera_link_pr001">
+        <pose>0 0 2 0 0 0</pose> <!-- Adjust the pose as needed -->
+        <sensor name="camera_pr001" type="camera">
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>1000</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.001</stddev>
+            </noise>
+          </camera>
+          <plugin name="camera_controller_pr001" filename="libgazebo_ros_camera.so">
+            <update_rate>30.0</update_rate>
+            <camera_name>prius_camera_pr001</camera_name>
+          </plugin>
+        </sensor>
+      </link>
+    </model>
+
+    <!-- Prius Model with Camera - PR002 -->
+    <model name="prius_with_camera_pr002">
+      <pose>93 -15.9 0 0 0 -1.57</pose> <!-- Adjust the pose as needed -->
+      <static>0</static>
+
+      <!-- Prius Model File -->
+      <include>
+        <uri>model://prius_hybrid</uri> <!-- Assuming the model is named prius_hybrid -->
+      </include>
+
+      <!-- Camera Sensor -->
+      <link name="camera_link_pr002">
+        <pose>0 0 2 0 0 0</pose> <!-- Adjust the pose as needed -->
+        <sensor name="camera_pr002" type="camera">
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>1000</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.001</stddev>
+            </noise>
+          </camera>
+          <plugin name="camera_controller_pr002" filename="libgazebo_ros_camera.so">
+            <update_rate>30.0</update_rate>
+            <camera_name>prius_camera_pr002</camera_name>
+          </plugin>
+        </sensor>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>
+
+
